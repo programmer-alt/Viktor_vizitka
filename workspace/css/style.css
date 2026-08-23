@@ -42,7 +42,7 @@ header {
 .photo-container {
     flex: 0 0 auto; /* Не растягивается и не сжимается */
     width: 300px; /* Уменьшенная ширина */
-    height: 300px; /* Уменьшенная высота */
+    height: 370px; /* Уменьшенная высота */
 }
 
 .photo-container img {
@@ -164,7 +164,8 @@ section h2::after {
 }
 
 .portfolio-nav button:hover {
-    background-color: #c28f5d; /* Темнее при наведении */
+    background-color: #b88c5f; /* Новый цвет при наведении */
+    color: #fff; /* Цвет текста при наведении */
 }
 
 /* === 5. СЕКЦИЯ "ПОЧЕМУ ВЫБИРАЮТ МЕНЯ" (СЕТКА КАРТОЧЕК) === */
