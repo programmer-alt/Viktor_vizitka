@@ -41,8 +41,8 @@ header {
 
 .photo-container {
     flex: 0 0 auto; /* Не растягивается и не сжимается */
-    width: 120px; /* Уменьшенная ширина */
-    height: 120px; /* Уменьшенная высота */
+    width: 300px; /* Уменьшенная ширина */
+    height: 300px; /* Уменьшенная высота */
 }
 
 .photo-container img {
