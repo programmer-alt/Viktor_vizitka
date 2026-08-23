@@ -1,0 +1,239 @@
+/* === 1. ПЕРЕМЕННЫЕ И БАЗОВЫЕ НАСТРОЙКИ === */
+:root {
+    --bg-color: #1a1816;         /* Тёмный тёплый фон */
+    --text-color: #e8e6e3;       /* Мягкий белый текст */
+    --accent-color: #d4a373;     /* Цвет светлого дерева (акцент) */
+    --card-bg: #252220;          /* Фон карточек */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* === 2. ШАПКА (HERO) === */
+header {
+    text-align: left; /* Изменено на left для размещения аватарки и текста слева */
+    padding: 40px 0; /* Уменьшено вертикальное пространство */
+    border-bottom: 1px solid #333;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center; /* Выравнивание по вертикали */
+    gap: 20px; /* Расстояние между аватаркой и текстом */
+}
+
+.photo-container {
+    flex: 0 0 auto; /* Не растягивается и не сжимается */
+    width: 120px; /* Уменьшенная ширина */
+    height: 120px; /* Уменьшенная высота */
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Объект заполняет контейнер, сохраняя пропорции */
+    border-radius: 10px;
+    border: 2px solid var(--accent-color); /* Добавлена рамка */
+}
+
+.info-container {
+    flex: 1; /* Растягивается на оставшееся место */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем по вертикали */
+}
+
+header h1 {
+    font-size: 2.5rem; /* Уменьшенный размер заголовка */
+    font-weight: 700;
+    margin-bottom: 5px; /* Уменьшенное пространство под заголовком */
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+header .subtitle {
+    font-size: 1.1rem; /* Уменьшенный размер подзаголовка */
+    color: #b0adaa;
+    font-weight: 300;
+    margin-bottom: 5px; /* Пространство между подзаголовком и компанией */
+}
+
+.company {
+    font-size: 0.9rem; /* Размер текста для компании */
+    color: var(--accent-color); /* Цвет акцента */
+    font-style: italic; /* Курсив */
+    opacity: 0.8; /* Немного прозрачный */
+}
+
+/* === 3. ОБЩИЕ СТИЛИ СЕКЦИЙ === */
+section {
+    padding: 50px 0;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Декоративная линия под заголовком */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+/* === 4. СЕКЦИЯ "ЧТО Я ДЕЛАЮ" === */
+.about-text {
+    font-size: 1.15rem;
+    max-width: 700px;
+    color: #d1cfc9;
+    margin-bottom: 30px; /* Пространство перед галереей */
+}
+
+/* === Стили для галереи портфолио === */
+.portfolio-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.portfolio-display {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Максимальная ширина галереи */
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: auto;
+    display: none;
+    max-height: 300px; /* Ограничиваем высоту изображений */
+    object-fit: cover; /* Объект заполняет контейнер */
+}
+
+.portfolio-img.active {
+    display: block;
+}
+
+.portfolio-nav {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px; /* Ширина под галереей */
+    justify-content: space-between; /* Кнопки по краям */
+}
+
+.portfolio-nav button {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.portfolio-nav button:hover {
+    background-color: #c28f5d; /* Темнее при наведении */
+}
+
+/* === 5. СЕКЦИЯ "ПОЧЕМУ ВЫБИРАЮТ МЕНЯ" (СЕТКА КАРТОЧЕК) === */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: #b0adaa;
+}
+
+/* === 6. КОНТАКТЫ === */
+.contact-info {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.contact-item {
+    margin: 15px 0;
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-color);
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: #fff;
+    border-bottom-style: solid;
+}
+
+/* === 7. АДАПТИВНОСТЬ (МОБИЛЬНЫЕ УСТРОЙСТВА) === */
+@media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    header .subtitle { font-size: 1rem; }
+    .photo-container { width: 100px; height: 100px; }
+    .company { font-size: 0.8rem; }
+    .hero-content { flex-direction: column; text-align: center; }
+    .info-container { align-items: center; }
+    section { padding: 30px 0; }
+    .container { padding: 15px; }
+    .portfolio-display, .portfolio-nav { max-width: 100%; }
+}
